@@ -1,6 +1,6 @@
 /** Style */
 import "./assets/scss/main.scss";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 /** Libs */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

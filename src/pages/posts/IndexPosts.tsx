@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Container, Col, Row } from "react-bootstrap";
 import JsonApi from "../../services/json-api";
 import { useState, useEffect } from "react";
 import { Post as PostInterface } from "../../types/interfaces";
@@ -16,10 +16,14 @@ export const IndexPosts = () => {
   }, []);
 
   return (
-    <div>
+    <Container className="justify-content-center">
       {posts.map((post) => (
-        <Post key={post.id} post={post} />
+        <Row key={post.id} className="justify-content-center">
+          <Col md={10}>
+            <Post post={post} />
+          </Col>
+        </Row>
       ))}
-    </div>
+    </Container>
   );
 };

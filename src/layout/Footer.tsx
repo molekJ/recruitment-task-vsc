@@ -1,3 +1,13 @@
+import { Container, Row, Col } from "react-bootstrap";
+
 export default () => {
-  return <div>Footer</div>;
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <h3>Footer</h3>
+        </Col>
+      </Row>
+    </Container>
+  );
 };

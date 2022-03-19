@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import JsonApi from "../services/json-api";
 import { Post } from "../types/interfaces";
 
@@ -31,24 +32,52 @@ export const CommentForm = (props: { post: Post }) => {
   };
 
   return (
-    <div>
-      <span>{error}</span>
-      <label>
-        <span>Name</span>
-        <input name="name" value={form.name} onChange={handleChange} />
-      </label>
-      <label>
-        <span>Email</span>
-        <input name="email" value={form.email} onChange={handleChange} />
-      </label>
-      <label>
-        <span>Body</span>
-        <textarea name="body" value={form.body} onChange={handleChange} />
-      </label>
+    <Form>
+      <Form.Group className="mb-3 mt-3" as={Row} controlId="emailAdress">
+        <Col>
+          <Form.Label sm={2}>Email adress</Form.Label>
+        </Col>
+        <Col sm={10}>
+          <Form.Control
+            type="email"
+            placeholder="email@exmaple.com"
+            name="email"
+            onChange={handleChange}
+            size="sm"
+          />
+        </Col>
+      </Form.Group>
+      <Form.Group className="mb-3" as={Row} controlId="name">
+        <Col>
+          <Form.Label sm={2}>Name</Form.Label>
+        </Col>
+        <Col sm={10}>
+          <Form.Control
+            type="text"
+            placeholder="Title exmaple"
+            name="name"
+            onChange={handleChange}
+            size="sm"
+          />
+        </Col>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="body">
+        <Form.Label>Your comment</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={5}
+          name="body"
+          onChange={handleChange}
+          size="sm"
+        ></Form.Control>
+      </Form.Group>
+      <Col className="d-flex justify-content-end">
+        <Button disabled={!isValid} onClick={onButtonClick}>
+          Send
+        </Button>
+      </Col>
 
-      <button disabled={!isValid} onClick={onButtonClick}>
-        Send
-      </button>
-    </div>
+      <span>{error}</span>
+    </Form>
   );
 };

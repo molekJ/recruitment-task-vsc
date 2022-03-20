@@ -1,10 +1,10 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import { Comment as CommentInterface } from "../types/interfaces";
 import { AvatarGenerator } from "random-avatar-generator";
 
 const generator = new AvatarGenerator();
 
-const Comment = (props: { comment: CommentInterface }) => {
+export const Comment = (props: { comment: CommentInterface }) => {
   return (
     <Card className="comment-component">
       <Card.Body>
@@ -21,5 +21,3 @@ const Comment = (props: { comment: CommentInterface }) => {
     </Card>
   );
 };
-
-export default Comment;

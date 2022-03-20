@@ -1,12 +1,4 @@
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Card,
-  Button,
-  Accordion,
-} from "react-bootstrap";
+import { Row, Col, Form, Card, Button, Accordion } from "react-bootstrap";
 import JsonApi from "../services/json-api";
 import React, { useEffect, useState } from "react";
 
@@ -37,13 +29,12 @@ export const PostForm = () => {
   };
 
   return (
-    <Accordion defaultActiveKey="0">
+    <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>Create Your post</Accordion.Header>
         <Accordion.Body>
           <Form>
             <Card>
-              {/* <Card.Header>Create post</Card.Header> */}
               <Card.Body>
                 <Form.Group className="mb-3" as={Row} controlId="title">
                   <Col>

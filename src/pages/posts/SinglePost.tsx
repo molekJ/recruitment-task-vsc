@@ -7,7 +7,7 @@ import {
 } from "../../types/interfaces";
 import { CommentForm } from "../../components/CommentForm";
 import { Card, CardGroup, Container, Col, Row } from "react-bootstrap";
-import Comment from "../../components/Comment";
+import { Comment } from "../../components/Comment";
 import { AvatarGenerator } from "random-avatar-generator";
 
 const api = new JsonApi();

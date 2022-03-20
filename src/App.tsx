@@ -17,11 +17,13 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/posts" element={<IndexPosts />} />
-        <Route path="/posts/:id" element={<SinglePost />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/posts" element={<IndexPosts />} />
+          <Route path="/posts/:id" element={<SinglePost />} />
+        </Routes>
+      </main>
       <Footer />
     </Router>
   );

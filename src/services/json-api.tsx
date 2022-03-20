@@ -1,4 +1,4 @@
-import { Post, Comment } from "../types/interfaces";
+import { Post, Comment, User } from "../types/interfaces";
 
 export default class JsonApi {
   private _url = "https://jsonplaceholder.typicode.com";
@@ -22,7 +22,6 @@ export default class JsonApi {
   /*
    * get single post
    */
-
   public post(postId: number): Promise<Post> {
     return new Promise((res, rej) => {
       fetch(`${this._url}/posts/${postId}`)
@@ -39,7 +38,6 @@ export default class JsonApi {
   /*
    * add post
    */
-
   public sendPost(post: Pick<Post, "title" | "body">) {
     return new Promise((res, rej) => {
       setTimeout(() => {
@@ -67,7 +65,7 @@ export default class JsonApi {
   /*
    * add comment to post
    */
-
+  // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options
   public sendComment(
     postId: number,
     comment: Pick<Comment, "name" | "email" | "body">
@@ -76,6 +74,20 @@ export default class JsonApi {
       setTimeout(() => {
         rej(new Error("Demo version."));
       }, 1000);
+    });
+  }
+
+  /*
+   * get users
+   */
+  public users(): Promise<User[]> {
+    return new Promise((res, rej) => {
+      fetch(`${this._url}/users`).then((data) => {
+        data
+          .json()
+          .then((users) => res(users))
+          .catch((err) => rej(err));
+      });
     });
   }
 }

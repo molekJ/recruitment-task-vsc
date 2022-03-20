@@ -1,4 +1,4 @@
-import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default () => {
@@ -6,7 +6,7 @@ export default () => {
     <header>
       <Navbar bg="primary" variant="dark" className="mb-4">
         <Container>
-          <Navbar.Brand>Molek</Navbar.Brand>
+          <Navbar.Brand>VSC - post</Navbar.Brand>
 
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">

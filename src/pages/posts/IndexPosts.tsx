@@ -3,6 +3,7 @@ import JsonApi from "../../services/json-api";
 import { useState, useEffect } from "react";
 import { Post as PostInterface } from "../../types/interfaces";
 import { Post } from "../../components/Post";
+import { PostForm } from "../../components/PostForm";
 
 const api = new JsonApi();
 
@@ -24,6 +25,11 @@ export const IndexPosts = () => {
           </Col>
         </Row>
       ))}
+      <Row className="justify-content-center">
+        <Col md={10}>
+          <PostForm></PostForm>
+        </Col>
+      </Row>
     </Container>
   );
 };

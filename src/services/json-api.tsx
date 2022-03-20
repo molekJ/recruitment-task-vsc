@@ -40,7 +40,7 @@ export default class JsonApi {
    * add post
    */
 
-  public sendPost(props: Post) {
+  public sendPost(post: Pick<Post, "title" | "body">) {
     return new Promise((res, rej) => {
       setTimeout(() => {
         rej(new Error("Demo version!"));
@@ -74,7 +74,6 @@ export default class JsonApi {
   ) {
     return new Promise((res, rej) => {
       setTimeout(() => {
-        console.log(comment);
         rej(new Error("Demo version."));
       }, 1000);
     });

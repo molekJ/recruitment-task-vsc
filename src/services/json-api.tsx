@@ -37,6 +37,18 @@ export default class JsonApi {
   }
 
   /*
+   * add post
+   */
+
+  public sendPost(props: Post) {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        rej(new Error("Demo version!"));
+      }, 1000);
+    });
+  }
+
+  /*
    * get comments to given postID
    */
   public comments(postId: number): Promise<Comment[]> {
@@ -53,7 +65,7 @@ export default class JsonApi {
   }
 
   /*
-   * send comment to post
+   * add comment to post
    */
 
   public sendComment(

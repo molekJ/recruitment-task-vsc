@@ -1,0 +1,16 @@
+.page-single-post {
+  img {
+    max-width: 100%;
+  }
+
+  .post-comments {
+    .comment-component {
+      border: none;
+      border-radius: 0px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Button, Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import JsonApi from "../../services/json-api";
 import { useState, useEffect } from "react";
 import { Post as PostInterface } from "../../types/interfaces";

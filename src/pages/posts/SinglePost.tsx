@@ -8,8 +8,10 @@ import {
 import { CommentForm } from "../../components/CommentForm";
 import { Card, CardGroup, Container, Col, Row } from "react-bootstrap";
 import Comment from "../../components/Comment";
+import { AvatarGenerator } from "random-avatar-generator";
 
 const api = new JsonApi();
+const generator = new AvatarGenerator();
 
 export const SinglePost = () => {
   const params = useParams();
@@ -29,24 +31,46 @@ export const SinglePost = () => {
   }, []);
 
   return post ? (
-    <Container>
+    <Container className="page-single-post">
       <Row className="justify-content-center">
-        <Col sm={10}>
-          <Card className="p-4 mb-4">
-            <Card.Title className="p-4">{post.title}</Card.Title>
-            <Card.Text className="p-4">{post.body}</Card.Text>
+        <Col xs={12}>
+          <Card className="p-4 mb-3">
+            <Row>
+              <Col sm={3} md={2} className="d-flex justify-content-center">
+                <img
+                  src={generator.generateRandomAvatar(post.userId.toString())}
+                />
+              </Col>
+              <Col>
+                <Card.Body className="mb-4">
+                  <Card.Title className="pb-4 fw-bold text-uppercase">
+                    {post.title}
+                  </Card.Title>
+                  <Card.Text className="pb-4">{post.body}</Card.Text>
+                  <Card.Subtitle className="text-muted ">
+                    <span>Added:</span>{" "}
+                    <span>{new Date().toLocaleDateString()}</span>
+                  </Card.Subtitle>
+                </Card.Body>
+              </Col>
+            </Row>
           </Card>
         </Col>
 
-        <Col xs={10}>
-          <CardGroup className="flex-column ">
-            {comments.map((comment) => {
-              return <Comment key={comment.id} comment={comment} />;
-            })}
-          </CardGroup>
+        <Col xs={12}>
+          <Card className="post-comments">
+            <Card.Header>Comments ({comments.length}): </Card.Header>
+            <Card.Body>
+              <CardGroup className="flex-column">
+                {comments.map((comment) => {
+                  return <Comment key={comment.id} comment={comment} />;
+                })}
+              </CardGroup>
+            </Card.Body>
+          </Card>
         </Col>
 
-        <Col xs={10}>
+        <Col xs={12}>
           <CommentForm post={post} />
         </Col>
       </Row>

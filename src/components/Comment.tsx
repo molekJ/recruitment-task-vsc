@@ -1,15 +1,18 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { Comment as CommentInterface } from "../types/interfaces";
+import { AvatarGenerator } from "random-avatar-generator";
+
+const generator = new AvatarGenerator();
 
 const Comment = (props: { comment: CommentInterface }) => {
   return (
-    <Card className="border-0 border-bottom">
+    <Card className="comment-component">
       <Card.Body>
         <Row>
-          <Col xs={4}>
-            <Card.Text>{props.comment.email}</Card.Text>
+          <Col xs={2} md={1}>
+            <img src={generator.generateRandomAvatar(props.comment.email)} />
           </Col>
-          <Col xs={8}>
+          <Col>
             <Card.Title>{props.comment.name}</Card.Title>
             <Card.Text>{props.comment.body}</Card.Text>
           </Col>

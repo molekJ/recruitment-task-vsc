@@ -6,7 +6,7 @@ export default () => {
     <header>
       <Navbar bg="primary" variant="dark" className="mb-4">
         <Container>
-          <Navbar.Brand>VSC - post</Navbar.Brand>
+          <Navbar.Brand>VSC - posts</Navbar.Brand>
 
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">
